@@ -4,16 +4,16 @@
 /* Variables */
 
 :root {
-  --color-win: #78CF82;
-  --color-lose: #D94545;
-  --color-start: #5b85b7;
-  --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
-  --color-keys: #37474F;
-  --color-keys-light: #E5E5E5;
+  --color-win: #DAEFB3;
+  --color-lose: #D64550;
+  --color-start: #EA9E8D;
+  --color-neutral: #1C2826;
+  --color-neutral-light: #EEF4D4;
+  --color-keys: #1C2826;
+  --color-keys-light: #EEF4D4;
   --font-size-large: 60px;
   --font-size-medium: 20px;
-  --transition: all .2s ease-in-out;
+  --transition: all .8s ease-in-out;
 }
 
 /* main */
@@ -86,7 +86,8 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: #1C2826;
+  text-shadow: 2px 2px 2px #CE5937;
 }
 
 
@@ -101,6 +102,7 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  transition: all .8s ease-in-out;
 }
 
 .space {
@@ -110,8 +112,8 @@ button {
 
 
 .show {
-  color: #fff;
-  background-color: #4ac0d5;
+  color: #EEF4D4;
+  background-color: #EA9E8D;
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -120,6 +122,7 @@ button {
   border-radius: 5px;
   -webkit-animation-duration: .5s;
   animation-duration: .5s;
+  transition: all .8s ease-in-out;
 }
 
 
@@ -131,21 +134,22 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #1C2826;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
+  transition: all .8s ease-in-out;
 }
 
 .wrong {
-  background: #f7a964;
+  background: #EA9E8D;
   color: #FFFFFF;
 }
 
 .btn__reset {
   padding: 16px;
   margin: 50px auto;
-  background: #f7a964;
+  background: #EA9E8D;
   border-radius: 5px;
   font-size: 20px;
   cursor: pointer;
@@ -173,14 +177,17 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+  animation: pulse 4s infinite;
 }
 
 .title {
   color: #FFF;
+  text-shadow: 2px 2px 2px #CE5937;
+  filter: blur(2px);
 }
 
 .start {
-  background-color: #3a3f58;
+  background-color: #1C2826;
 }
 
 .start a {
@@ -189,6 +196,7 @@ button {
 
 .win {
   background-color: var(--color-win);
+  transition: all .8s ease-in-out;
 }
 
 .win a {
@@ -196,9 +204,12 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-color: #EA9E8D;
+  transition: all .8s ease-in-out;
 }
 
 .lose a {
   color: var(--color-lose);
 }
+
+

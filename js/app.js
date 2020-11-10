@@ -14,7 +14,7 @@ startButton.addEventListener('click', (e) => {
     game.startGame();
 })
 
-// add click listeners to each keyboard button
+// add click listeners to each on-screen keyboard button
 // create variable to hold the div w/ id of 'qwerty'
 const qwerty = document.querySelector('#qwerty').children;
 // for loop that loops through the three rows of buttons
@@ -25,14 +25,13 @@ for (let i = 0; i < qwerty.length; i++) {
     
     // nested for loop that loops through the buttons in each row
     for (let j = 0; j < currRow.length; j++) {
-        // select button
         // add event listener to button that calls handleInteraction() on game object
-        currRow[j].addEventListener('click', (e) => {
-            game.handleInteraction(e);
-        });
-        
+        currRow[j].addEventListener('click', (e) => game.handleInteraction(e));
     }
 // end for  
-
 }
-    
+
+// add event listeners that allow the user to enter the keys through their keyboard
+document.addEventListener('keydown', (e) => {
+    game.handleInteraction(e);
+})

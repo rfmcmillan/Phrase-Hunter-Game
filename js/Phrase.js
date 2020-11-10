@@ -7,6 +7,7 @@ class Phrase {
         this.phrase = phrase;
     }
 
+    // a method to add the randomly chosen phrase to the display in the form of blank placeholder boxes
     addPhraseToDisplay() {
         // create a variable to hold the unordered list of letters
         const phraseDiv = document.querySelector('#phrase');
@@ -57,5 +58,13 @@ class Phrase {
         const hiddenLetterBoxes = document.querySelectorAll(`.${clickedKeyLetter}`);
         // change the className to 'show'
         hiddenLetterBoxes.forEach(letterbox => letterbox.className = `show letter ${clickedKeyLetter}`)
+    }
+
+    showKeyedLetter(event) {
+        const keyedLetter = event.key;
+        // select the corresponding list item in the dom
+        const hiddenLetterBoxes = document.querySelectorAll(`.${keyedLetter}`);
+        // change the className to 'show'
+        hiddenLetterBoxes.forEach(letterbox => letterbox.className = `show letter ${keyedLetter}`)
     }
 }
