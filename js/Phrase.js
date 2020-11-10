@@ -11,8 +11,6 @@ class Phrase {
         // create a variable to hold the unordered list of letters
         const phraseDiv = document.querySelector('#phrase');
         const phraseUL = phraseDiv.firstElementChild;
-        // clear the previous phrase
-        phraseUL.children.remove;
 
         // for the given phrase, a list item should be created for each character in 
         // the phrase and passed into the unordered list

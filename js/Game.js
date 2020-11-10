@@ -13,11 +13,11 @@ class Game {
     createPhrases() {
         
         const phraseStrings = [
-            'I am phrase One',
-            'I am phrase Two',
-            'I am phrase Three',
-            'I am phrase Four',
-            'I am phrase Five'
+            'I One',
+            'I Two',
+            'I Three',
+            'I Four',
+            'I Five'
         ]
         
         // iterate through the strings to create a new phrase Object for each string
@@ -28,22 +28,52 @@ class Game {
         
         return phraseObjects;
     }
+    // a method to remove all phrase UL list items from a previous game
+    removeOldPhraseBoxes() {
+    //  select the list items of the previous phrase UL
+        const oldPhraseBoxes = document.querySelectorAll('li.letter, li.space');
+        for (let i = 0; i < oldPhraseBoxes.length; i++) {
+            oldPhraseBoxes[i].remove();
+        }
+    }
 
+    resetKeyboard() {
+        const pressedKeys = document.querySelectorAll('button.chosen, button.wrong');
+        for (let i = 0; i < pressedKeys.length; i++) {
+            pressedKeys[i].className = 'key';
+            pressedKeys[i].disabled = false;
+        }
+    }
+
+    resetHearts() {
+        const emptyHearts = document.querySelectorAll('li.lost');
+        console.log(emptyHearts);
+        emptyHearts.forEach(emptyHeart => {
+            emptyHeart.className = 'tries';
+            emptyHeart.firstElementChild.src = 'images/liveHeart.png';
+        });
+        
+    }
+    
+    // a method to reset the game to its' initial state
+    resetGame() {
+        this.removeOldPhraseBoxes();
+        this.resetKeyboard();
+        this.resetHearts();
+    }
+    
+    // a method to start a new game
     startGame() {
-        // hides the start screen overlay
-
         // create variable to hold the overlay
         const overlay = document.querySelector('#overlay');
         // hide the overlay
         overlay.style.display = 'none';
-
         // sets activePhrase to a call to the getRandomPhrase method
         this.activePhrase = this.getRandomPhrase();
-
         // call addPhraseToDisplay method with the activePhrase passed in as an arg in order to add phrase to the board
         this.activePhrase.addPhraseToDisplay();
     }
-
+    
     // method that randomly retrieves a phrase from the phrases array and returns it 
     getRandomPhrase() {
         /* 
@@ -52,8 +82,7 @@ class Game {
         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
          */
         function getRandomInt(max) {
-            console.log(Math.ceil(Math.random() * Math.ceil(max)));
-            return Math.ceil(Math.random() * Math.ceil(max));
+            return Math.floor(Math.random() * Math.floor(max));
             
           }
 
@@ -156,8 +185,8 @@ class Game {
             overlay.children[1].textContent = 'You win!';
         // end if
         } else {
-            // change h1 textcontent to equal 'Wrong! Try again!'
-            overlay.children[1].textContent = 'Wrong! Try again!';
+            // change h1 textcontent to a game over message
+            overlay.children[1].textContent = 'Game Over! Please try again!';
         // end else
         }
     }

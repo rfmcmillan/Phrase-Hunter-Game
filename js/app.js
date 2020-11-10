@@ -9,7 +9,10 @@
 // create variable to hold the start button
 const startButton = document.querySelector('#btn__reset');
 // add event listener to the start button thatcalls the startGame() method
-startButton.addEventListener('click', (e) => game.startGame())
+startButton.addEventListener('click', (e) => {
+    game.resetGame();
+    game.startGame();
+})
 
 // add click listeners to each keyboard button
 // create variable to hold the div w/ id of 'qwerty'
